@@ -1,6 +1,6 @@
 # deformable_simulator_scene_utilities
 
-This Python package provides utility functions to easily create scene files compatible with **Tesseract Planners** and **Deformable Object Simulator Packages** such as `dlo_simulator_stiff_rods` and `fabric_simulator`.
+This ROS wrapped Python package provides utility functions to easily create scene files compatible with **Tesseract Planners** and **Deformable Object Simulator Packages** such as `dlo_simulator_stiff_rods` and `fabric_simulator`.
 
 **Deformable Object Simulator Packages** use a custom `JSON` file for their own scene description files. **Tesseract Planners**, on the other hand, creates their own Environment using Tesseract Scene Graph, which can be generated through Python Scripting or by parsing a `URDF` file. The scripts in this folder can be used to convert these `JSON` and `URDF` files to each other quickly.
 
