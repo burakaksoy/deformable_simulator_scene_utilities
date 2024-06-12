@@ -9,6 +9,8 @@ import yourdfpy
 """
 urdf_to_json.py: Transforms URDF files into JSON format for deformable object simulators.
 
+Author: Burak Aksoy
+
 This module processes URDF files, typically used in ROS environments, converting them into a JSON format that is suitable for use with deformable object simulators. 
 The transformation includes complex parsing and computation to ensure that all relevant URDF elements are accurately represented in the JSON structure.
 
