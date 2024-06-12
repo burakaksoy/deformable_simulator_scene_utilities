@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<robot name="corridor_base_link">
+  <link name="corridor_base_link"/>
+  <link name="link_box_id_1">
+    <visual>
+      <geometry>
+        <mesh filename="file:///home/burak/catkin_ws_deformable/src/deformable_description/deformable_simulator_scene_utilities/src/deformable_simulator_scene_utilities/meshes/primitives/box.obj" scale="6.0 6.0 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file:///home/burak/catkin_ws_deformable/src/deformable_description/deformable_simulator_scene_utilities/src/deformable_simulator_scene_utilities/meshes/primitives/box.obj" scale="6.0 6.0 0.1"/>
+      </geometry>
+    </collision>
+    <isDynamic>0</isDynamic>
+    <density>1.0</density>
+    <velocity>[0.0, 0.0, 0.0]</velocity>
+    <angularVelocity>[0.0, 0.0, 0.0]</angularVelocity>
+    <restitution>0.0</restitution>
+    <frictionStatic>0.5</frictionStatic>
+    <frictionDynamic>0.5</frictionDynamic>
+    <comment>collisionObjectFileName can contain the path of an SDF file or if it is empty, the simulator will generate an SDF using the mesh in the geometryFile</comment>
+    <collisionObjectFileName/>
+    <resolutionSDF>[50, 50, 50]</resolutionSDF>
+    <invertSDF>0</invertSDF>
+  </link>
+  <joint name="joint_link_box_id_1" type="fixed">
+    <parent link="corridor_base_link"/>
+    <child link="link_box_id_1"/>
+    <origin xyz="0.0 0.0 -0.05" rpy="0.0 0.0 0.0"/>
+  </joint>
+  <link name="link_box_id_2">
+    <visual>
+      <geometry>
+        <mesh filename="file:///home/burak/catkin_ws_deformable/src/deformable_description/deformable_simulator_scene_utilities/src/deformable_simulator_scene_utilities/meshes/primitives/box.obj" scale="6.0 0.1 2.4"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file:///home/burak/catkin_ws_deformable/src/deformable_description/deformable_simulator_scene_utilities/src/deformable_simulator_scene_utilities/meshes/primitives/box.obj" scale="6.0 0.1 2.4"/>
+      </geometry>
+    </collision>
+    <isDynamic>0</isDynamic>
+    <density>1.0</density>
+    <velocity>[0.0, 0.0, 0.0]</velocity>
+    <angularVelocity>[0.0, 0.0, 0.0]</angularVelocity>
+    <restitution>0.0</restitution>
+    <frictionStatic>0.5</frictionStatic>
+    <frictionDynamic>0.5</frictionDynamic>
+    <comment>collisionObjectFileName can contain the path of an SDF file or if it is empty, the simulator will generate an SDF using the mesh in the geometryFile</comment>
+    <collisionObjectFileName/>
+    <resolutionSDF>[50, 50, 50]</resolutionSDF>
+    <invertSDF>0</invertSDF>
+  </link>
+  <joint name="joint_link_box_id_2" type="fixed">
+    <parent link="corridor_base_link"/>
+    <child link="link_box_id_2"/>
+    <origin xyz="0.0 2.95 1.2" rpy="0.0 0.0 0.0"/>
+  </joint>
+  <link name="link_box_id_3">
+    <visual>
+      <geometry>
+        <mesh filename="file:///home/burak/catkin_ws_deformable/src/deformable_description/deformable_simulator_scene_utilities/src/deformable_simulator_scene_utilities/meshes/primitives/box.obj" scale="3.0 0.1 2.4"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file:///home/burak/catkin_ws_deformable/src/deformable_description/deformable_simulator_scene_utilities/src/deformable_simulator_scene_utilities/meshes/primitives/box.obj" scale="3.0 0.1 2.4"/>
+      </geometry>
+    </collision>
+    <isDynamic>0</isDynamic>
+    <density>1.0</density>
+    <velocity>[0.0, 0.0, 0.0]</velocity>
+    <angularVelocity>[0.0, 0.0, 0.0]</angularVelocity>
+    <restitution>0.0</restitution>
+    <frictionStatic>0.5</frictionStatic>
+    <frictionDynamic>0.5</frictionDynamic>
+    <comment>collisionObjectFileName can contain the path of an SDF file or if it is empty, the simulator will generate an SDF using the mesh in the geometryFile</comment>
+    <collisionObjectFileName/>
+    <resolutionSDF>[50, 50, 50]</resolutionSDF>
+    <invertSDF>0</invertSDF>
+  </link>
+  <joint name="joint_link_box_id_3" type="fixed">
+    <parent link="corridor_base_link"/>
+    <child link="link_box_id_3"/>
+    <origin xyz="2.95 1.5 1.2" rpy="-2.6535897933558445e-06 -2.653589793355845e-06 -1.5707926535897931"/>
+  </joint>
+</robot>
