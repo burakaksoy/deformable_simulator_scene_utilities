@@ -9,6 +9,44 @@ from xml.dom import minidom
 
 import yourdfpy
 
+"""
+json_to_urdf.py: Converts JSON scene descriptions to URDF files for ROS environments.
+
+Author: Burak Aksoy
+
+This module provides functionality to convert JSON formatted scene descriptions,
+typically used in deformable object simulators, into URDF files compatible with
+ROS and Tesseract Planners. It reads a JSON file, extracts scene and object
+parameters, and outputs a well-formatted URDF file.
+
+Key Features:
+- Root link is named after the 'Name' field in the JSON, serving as an empty root
+  for the scene hierarchy.
+- Each entry in 'RigidBodies' is converted into a URDF link with a fixed joint
+  to the root. Link names are derived from the geometry file names and include
+  unique identifiers.
+- Transforms (translation and rotation) are applied as specified in the JSON.
+- Additional metadata from JSON (like density, friction coefficients) are
+  embedded as custom XML elements within each link for comprehensive simulation
+  detail.
+- Mesh file paths are prefixed with 'file://' to conform to URI standards required
+  by ROS and Tesseract environments.
+
+Usage:
+To generate a URDF from a JSON scene description, ensure that the JSON file is
+formatted correctly with all necessary fields. The output URDF is readable,
+with appropriate indentations and line breaks, enhancing usability and maintainability.
+
+Example:
+Run the function json_to_urdf with the path to your JSON file to generate and
+optionally visualize the URDF structure.
+
+Dependencies:
+Requires numpy for matrix operations and xml.etree for XML handling. Ensure
+yourdfpy[full] is installed for full functionality.
+
+"""
+
 def _save_urdf(urdf_str, output_file_path):
     if not (output_file_path == "" or output_file_path is None):
         try:

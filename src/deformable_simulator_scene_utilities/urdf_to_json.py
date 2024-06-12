@@ -6,6 +6,43 @@ import numpy as np
 
 import yourdfpy
 
+"""
+urdf_to_json.py: Transforms URDF files into JSON format for deformable object simulators.
+
+This module processes URDF files, typically used in ROS environments, converting them into a JSON format that is suitable for use with deformable object simulators. 
+The transformation includes complex parsing and computation to ensure that all relevant URDF elements are accurately represented in the JSON structure.
+
+Features and Process:
+- Parses URDF to extract link and joint data, converting each link into a JSON "RigidBody" object.
+- Calculates transformations (translations and rotations) relative to the root link, ensuring correct spatial relationships.
+- Handles multiple visual and collision geometries per link, including their origins.
+- Converts primitive geometries (box, cylinder, sphere) specified in URDF to corresponding mesh files located in a predefined 'primitives' directory.
+- Generates default values for necessary simulation parameters not typically included in URDF, such as dynamic properties and SDF resolutions.
+- Outputs a well-formatted JSON file with comprehensive scene description, including custom metadata fields for enhanced simulation fidelity.
+
+Usage:
+The script requires the path to the URDF file and optionally outputs the resultant JSON to a specified file. 
+It supports visualization of the parsed URDF model for verification purposes.
+
+Dependencies:
+Utilizes numpy for numerical operations and yourdfpy for URDF parsing. 
+Ensure the required Python packages are installed, 
+including yourdfpy[full] for full functionality.
+
+Example:
+Invoke the urdf_to_json function with appropriate parameters to convert an URDF file to JSON format, specifying output options as needed.
+
+Design Considerations:
+- The script identifies the root link by detecting which link is not a child in any joint definition.
+- It correctly handles scenarios with multiple disconnected trees of links, ensuring that each tree's root transformations are computed accurately.
+- The script ignores non-visual links, non-fixed joints, and other URDF elements like inertials, transmissions, 
+and materials that are irrelevant to the JSON format needed for simulators.
+
+Note: This script is part of a toolchain that facilitates the integration of robotic planning and simulation environments
+by enabling seamless transitions between URDF and custom JSON formats used in specific simulators.
+"""
+
+
 # Get the directory of the current script
 current_file_dir = os.path.dirname(os.path.abspath(__file__))
 # Path to the primitives directory
