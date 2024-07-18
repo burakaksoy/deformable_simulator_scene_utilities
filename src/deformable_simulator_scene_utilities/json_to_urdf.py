@@ -95,16 +95,30 @@ def _json_str_to_urdf(json_data):
         # Visual element
         visual = SubElement(link, 'visual')
         geometry_v = SubElement(visual, 'geometry')
-        mesh_v = SubElement(geometry_v, 'mesh')
-        mesh_v.set('filename', f"file://{body['geometryFile']}")
-        mesh_v.set('scale', ' '.join(map(str, body['scale'])))
-
+        
+        if "primitives/box.obj" in body['geometryFile']:
+            box_v = SubElement(geometry_v, 'box')
+            box_v.set('size', ' '.join(map(str, body['scale'])))
+            
+        else:
+            mesh_v = SubElement(geometry_v, 'mesh')
+            mesh_v.set('filename', f"file://{body['geometryFile']}")
+            mesh_v.set('scale', ' '.join(map(str, body['scale'])))
+    
         # Collision element
         collision = SubElement(link, 'collision')
         geometry_c = SubElement(collision, 'geometry')
-        mesh_c = SubElement(geometry_c, 'mesh')
-        mesh_c.set('filename', f"file://{body['geometryFile']}")
-        mesh_c.set('scale', ' '.join(map(str, body['collisionObjectScale'])))
+        
+        if "primitives/box.obj" in body['geometryFile']:
+            box_c = SubElement(geometry_c, 'box')
+            box_c.set('size', ' '.join(map(str, body['collisionObjectScale'])))
+        
+        else:
+            mesh_c = SubElement(geometry_c, 'mesh')
+            mesh_c.set('filename', f"file://{body['geometryFile']}")    
+            mesh_c.set('scale', ' '.join(map(str, body['collisionObjectScale'])))
+        
+
 
         # Fixed joint connecting this link to the root link
         joint = SubElement(robot, 'joint', {'name': f'joint_{link_name}', 'type': 'fixed'})
