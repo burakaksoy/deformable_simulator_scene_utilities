@@ -88,7 +88,7 @@ def R2rot(R):
                 k[2] = k[2] * np.sign(B[0,2] / k[0])
             elif np.abs(k[1]) > 1e-6:
                 k[2] = k[2] * np.sign(B[0,2] / k[1])
-            return k, np.pi
+            return list(np.squeeze(k)), np.pi
     
     k = invhat(R1)/(2.0*sin_theta)    
     return list(np.squeeze(k)), theta
