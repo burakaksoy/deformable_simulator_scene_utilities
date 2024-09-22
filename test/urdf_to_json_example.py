@@ -116,12 +116,15 @@ json_str = urdf_to_json(input_file_path=input_file_path,
 print("Generated JSON from URDF file:", json_str)
 print("----------------------------------------------------")
 
-# print(urdf_str_to_json(urdf_str))
-# print(urdf_str_to_json(urdf_str, visualize=True))
 
+# # IMPORT DIRECTLY FROM FILE
+# input_file_path = "/home/burak/catkin_ws_deformable/src/deformable_description/urdf/scenes_mingrui_yu/scene_mingruiyu_6.urdf"
 
+# output_file_path = "/home/burak/catkin_ws_deformable/src/dlo_simulator_stiff_rods/config/scenes/scene_mingruiyu_6.json"
 
+# json_str = urdf_to_json(input_file_path=input_file_path, 
+#                         save_output=True, output_file_path=output_file_path, 
+#                         visualize=True)
 
-
-
-
+# print("Generated JSON from URDF file:", json_str)
+# print("----------------------------------------------------")
