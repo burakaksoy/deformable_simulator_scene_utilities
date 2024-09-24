@@ -134,9 +134,17 @@ def _json_str_to_urdf(json_data):
             np.sin(angle / 2) * axis[1],
             np.sin(angle / 2) * axis[2]
         ])
-        origin.set('rpy', ' '.join(map(str, [np.arctan2(2*(q[0]*q[1] + q[2]*q[3]), 1 - 2*(q[1]**2 + q[2]**2)),
-                                             np.arcsin(2*(q[0]*q[2] - q[3]*q[1])),
-                                             np.arctan2(2*(q[0]*q[3] + q[1]*q[2]), 1 - 2*(q[2]**2 + q[3]**2))])))
+        
+        roll = np.arctan2(2*(q[0]*q[1] + q[2]*q[3]), 1 - 2*(q[1]**2 + q[2]**2))
+        s2 = 2*(q[0]*q[2] - q[3]*q[1])
+        pitch = np.arcsin(np.clip(s2, -1.0, 1.0)) # Clipping to avoid NaN due to machine precision
+        yaw = np.arctan2(2*(q[0]*q[3] + q[1]*q[2]), 1 - 2*(q[2]**2 + q[3]**2))
+        
+        # print("angle:", angle)
+        # print("axis:", axis)
+        # print("q:", q)
+        # print(' '.join(map(str, [roll, pitch, yaw])))
+        origin.set('rpy', ' '.join(map(str, [roll, pitch, yaw])))
 
         # Add other properties as metadata
         for key, value in body.items():
